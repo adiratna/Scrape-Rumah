@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>OLX Chart: Jual Beli Handphone Baru dan Bekas di Bandung Kota </title>
+</head>
+<body>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+  <script type="text/javascript">
+    var d = {"labels": ["Surabaya Kota", "Bandung Kota", "Tangerang Selatan Kota", "Yogyakarta Kota", "Bekasi Kota", "Sleman Kab.", "Depok Kota"], 
+    "k1": [175, 348], 
+    "k2": [121, 163], 
+    "k3": [107, 108], 
+    "k4": [41, 144], 
+    "k5": [60, 104], 
+    "k6": [33, 114], 
+    "k7": [71, 72]}
+
+    var olxChart = document.getElementById('myChart')
+
+    var chart = new Chart(olxChart,{
+      type:'bar',
+      data:{
+        labels:d['labels'],
+        datasets:[{
+          label:'Dijual',
+          backgroundColor:'#FF007F',
+          data:[d['k1'][0],d['k2'][0],d['k3'][0],d['k4'][0],d['k5'][0],d['k6'][0],d['k7'][0]]
+        }, {
+          label:'Disewakan',
+          backgroundColor:'#87CEEB',
+          data:[d['k1'][1],d['k2'][1],d['k3'][1],d['k4'][1],d['k5'][1],d['k7'][1],d['k7'][1]]
+        },]
+      },
+      options:{
+        title:{
+          position:'top',
+          display:true,
+          text:['OLX - 7 Kota dengan Angka Penjualan dan Penyewaan Rumah Terbanyak'],
+          fontSize:18,
+          padding:30
+        },
+        legend:{
+          display:true,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:0,
+            right:0,
+            bottom:0,
+            top:50
+          }
+        },
+        tooltips:{
+          enable:true
+        }
+      }
+    });
+  </script>
+</body>
+</html>
